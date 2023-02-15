@@ -25,7 +25,7 @@ export class Modal extends Component {
   render() {
     const { largeImageURL } = this.props;
     return (
-      <StyledOverlay>
+      <StyledOverlay onClick={this.closeImage}>
         <StyledModal>
           <img src={largeImageURL} alt="" />
         </StyledModal>

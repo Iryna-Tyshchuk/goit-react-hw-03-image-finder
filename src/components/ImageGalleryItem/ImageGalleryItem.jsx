@@ -7,8 +7,12 @@ export const ImageGalleryItem = ({
   getLargeImage,
 }) => {
   return (
-    <StyledLi onClick={() => getLargeImage(largeImageURL)}>
-      <StyledImg src={webformatURL} alt={tags} />
+    <StyledLi>
+      <StyledImg
+        onClick={() => getLargeImage(largeImageURL)}
+        src={webformatURL}
+        alt={tags}
+      />
     </StyledLi>
   );
 };

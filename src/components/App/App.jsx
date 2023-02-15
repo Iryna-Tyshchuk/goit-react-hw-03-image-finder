@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-import { ImageGallery } from '../ImageGallery/ImageGallery';
-import { requestImages } from '../../services/api';
-import { SearchBar } from '../SearchBar/SearchBar';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+import { requestImages } from '../../services/api';
 import { StyledApp } from './App.styled';
+import { SearchBar } from '../SearchBar/SearchBar';
+import { ImageGallery } from '../ImageGallery/ImageGallery';
 import { Button } from 'components/Button/Button';
 import { Modal } from 'components/Modal/Modal';
 import { Text } from 'components/Text/Text';
+
 export class App extends Component {
   state = {
     images: [],
@@ -86,15 +87,21 @@ export class App extends Component {
 
     return (
       <StyledApp>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          closeOnClick
+          theme="colored"
+        />
         <SearchBar onSubmit={this.getQuery} />
         {images.length !== 0 && (
           <ImageGallery images={images} getLargeImage={this.getLargeImage} />
         )}
-        {!isLoading && images.length === 0 && !error && (
+        {/* {!isLoading && images.length === 0 && !error && (
           <Text textAlign="center">Sorry. There are no images ... 😭</Text>
         )}
 
-        {error && <Text textAlign="center">{error}</Text>}
+        {error && <Text textAlign="center">{error}</Text>} */}
 
         {!isLoading && totalImages !== images.length && (
           <Button type="button" onClick={this.loadMore}>
@@ -103,16 +110,12 @@ export class App extends Component {
         )}
 
         {isLoading && <Text textAlign="center">Loading</Text>}
+
         {largeImageURL && (
           <Modal largeImageURL={largeImageURL} closeModal={this.closeModal} />
         )}
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          closeOnClick
-          theme="colored"
-        />
       </StyledApp>
     );
   }
 }
+// підключити лоадер
