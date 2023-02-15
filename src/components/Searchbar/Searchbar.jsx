@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { StyledForm, StyledSearchBar, StyledSpan } from './SearchBar.styled';
+import { ImSearch } from 'react-icons/im';
+import { StyledForm, StyledSearchBar } from './SearchBar.styled';
 
 export class SearchBar extends Component {
   state = {
@@ -21,7 +22,7 @@ export class SearchBar extends Component {
       <StyledSearchBar>
         <StyledForm onSubmit={this.handleSubmit}>
           <button type="submit">
-            <StyledSpan>Search</StyledSpan>
+            <ImSearch size="20" />
           </button>
 
           <input
