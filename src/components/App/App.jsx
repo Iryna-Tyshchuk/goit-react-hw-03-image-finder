@@ -9,6 +9,7 @@ import { ImageGallery } from '../ImageGallery/ImageGallery';
 import { Button } from 'components/Button/Button';
 import { Modal } from 'components/Modal/Modal';
 import { Text } from 'components/Text/Text';
+import { Loader } from 'components/Loader/Loader';
 
 export class App extends Component {
   state = {
@@ -109,7 +110,7 @@ export class App extends Component {
           </Button>
         )}
 
-        {isLoading && <Text textAlign="center">Loading</Text>}
+        {isLoading && <Loader />}
 
         {largeImageURL && (
           <Modal largeImageURL={largeImageURL} closeModal={this.closeModal} />
@@ -118,4 +119,3 @@ export class App extends Component {
     );
   }
 }
-// підключити лоадер
