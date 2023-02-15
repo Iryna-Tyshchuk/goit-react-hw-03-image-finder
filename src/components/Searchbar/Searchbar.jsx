@@ -1,18 +1,39 @@
-// Опис компонента <Searchbar>
-// Компонент приймає один проп onSubmit – функцію для передачі значення інпута під час сабміту форми. Створює DOM-елемент наступної структури.
+import { Component } from 'react';
+import { StyledForm, StyledSearchBar, StyledSpan } from './SearchBar.styled';
 
-// <header class="searchbar">
-//   <form class="form">
-//     <button type="submit" class="button">
-//       <span class="button-label">Search</span>
-//     </button>
+export class SearchBar extends Component {
+  state = {
+    value: '',
+  };
 
-//     <input
-//       class="input"
-//       type="text"
-//       autocomplete="off"
-//       autofocus
-//       placeholder="Search images and photos"
-//     />
-//   </form>
-// </header>
+  handleSearchChange = e => {
+    this.setState({ value: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit({ ...this.state });
+    this.setState({ value: '' });
+  };
+
+  render() {
+    return (
+      <StyledSearchBar>
+        <StyledForm onSubmit={this.handleSubmit}>
+          <button type="submit">
+            <StyledSpan>Search</StyledSpan>
+          </button>
+
+          <input
+            type="text"
+            autoComplete="off"
+            autoFocus
+            placeholder="Search images and photos"
+            value={this.value}
+            onChange={this.handleSearchChange}
+          />
+        </StyledForm>
+      </StyledSearchBar>
+    );
+  }
+}

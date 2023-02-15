@@ -1,6 +1,14 @@
-// Опис компонента <ImageGalleryItem>
-// Компонент елемента списку із зображенням. Створює DOM-елемент наступної структури.
+import PropTypes from 'prop-types';
+import { StyledImg, StyledLi } from './ImageGalleryItem.styled';
+export const ImageGalleryItem = ({ image }) => {
+  return (
+    <StyledLi className="gallery-item">
+      <StyledImg src={image.webformatURL} alt={image.tags} />
+    </StyledLi>
+  );
+};
 
-// <li class="gallery-item">
-//   <img src="" alt="" />
-// </li>
+ImageGalleryItem.propTypes = {
+  image: PropTypes.shape,
+};
+// дописати пропс
