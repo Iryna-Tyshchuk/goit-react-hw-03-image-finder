@@ -1,14 +1,22 @@
 import PropTypes from 'prop-types';
 import { StyledImg, StyledLi } from './ImageGalleryItem.styled';
-export const ImageGalleryItem = ({ image }) => {
+export const ImageGalleryItem = ({
+  tags,
+  largeImageURL,
+  webformatURL,
+  getLargeImage,
+}) => {
   return (
-    <StyledLi className="gallery-item">
-      <StyledImg src={image.webformatURL} alt={image.tags} />
+    <StyledLi onClick={() => getLargeImage(largeImageURL)}>
+      <StyledImg src={webformatURL} alt={tags} />
     </StyledLi>
   );
 };
 
 ImageGalleryItem.propTypes = {
-  image: PropTypes.shape,
+  tags: PropTypes.string.isRequired,
+  largeImageURL: PropTypes.string.isRequired,
+  webformatURL: PropTypes.string.isRequired,
+  getLargeImage: PropTypes.func.isRequired,
 };
 // дописати пропс
