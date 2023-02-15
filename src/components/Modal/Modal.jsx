@@ -37,4 +37,3 @@ Modal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   largeImageURL: PropTypes.string.isRequired,
 };
-// дописати пропси

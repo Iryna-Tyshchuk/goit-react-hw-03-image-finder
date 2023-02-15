@@ -1,8 +1,14 @@
 import { Component } from 'react';
 import { ImSearch } from 'react-icons/im';
+import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
+
 import { StyledForm, StyledSearchBar } from './SearchBar.styled';
 
 export class SearchBar extends Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
   state = {
     value: '',
   };
@@ -13,7 +19,11 @@ export class SearchBar extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit({ ...this.state });
+    const { value } = this.state;
+    if (value.trim() === '') {
+      return toast.warning('Please, write what do you want to search)');
+    }
+    this.props.onSubmit({ value });
     this.setState({ value: '' });
   };
 

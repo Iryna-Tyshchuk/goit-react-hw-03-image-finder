@@ -23,4 +23,3 @@ ImageGalleryItem.propTypes = {
   webformatURL: PropTypes.string.isRequired,
   getLargeImage: PropTypes.func.isRequired,
 };
-// дописати пропс
