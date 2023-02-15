@@ -97,11 +97,11 @@ export class App extends Component {
         {images.length !== 0 && (
           <ImageGallery images={images} getLargeImage={this.getLargeImage} />
         )}
-        {/* {!isLoading && images.length === 0 && !error && (
+        {!isLoading && images.length === 0 && !error && (
           <Text textAlign="center">Sorry. There are no images ... 😭</Text>
         )}
 
-        {error && <Text textAlign="center">{error}</Text>} */}
+        {error && <Text textAlign="center">{error}</Text>}
 
         {!isLoading && totalImages !== images.length && (
           <Button type="button" onClick={this.loadMore}>
