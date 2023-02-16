@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { requestImages } from '../../services/api';
 import { StyledApp } from './App.styled';
-import { SearchBar } from '../SearchBar/SearchBar';
+import { Searchbar } from '../Searchbar/Searchbar';
 import { ImageGallery } from '../ImageGallery/ImageGallery';
 import { Button } from 'components/Button/Button';
 import { Modal } from 'components/Modal/Modal';
@@ -94,7 +94,7 @@ export class App extends Component {
           closeOnClick
           theme="colored"
         />
-        <SearchBar onSubmit={this.getQuery} />
+        <Searchbar onSubmit={this.getQuery} />
         {images.length !== 0 && (
           <ImageGallery images={images} getLargeImage={this.getLargeImage} />
         )}

@@ -3,9 +3,9 @@ import { ImSearch } from 'react-icons/im';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 
-import { StyledForm, StyledSearchBar } from './SearchBar.styled';
+import { StyledForm, StyledSearchbar } from './Searchbar.styled';
 
-export class SearchBar extends Component {
+export class Searchbar extends Component {
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
   };
@@ -29,7 +29,7 @@ export class SearchBar extends Component {
 
   render() {
     return (
-      <StyledSearchBar>
+      <StyledSearchbar>
         <StyledForm onSubmit={this.handleSubmit}>
           <button type="submit">
             <ImSearch size="20" />
@@ -44,7 +44,7 @@ export class SearchBar extends Component {
             onChange={this.handleSearchChange}
           />
         </StyledForm>
-      </StyledSearchBar>
+      </StyledSearchbar>
     );
   }
 }
