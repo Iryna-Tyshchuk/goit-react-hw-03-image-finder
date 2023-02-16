@@ -3,7 +3,7 @@ import { ImSearch } from 'react-icons/im';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 
-import { StyledForm, StyledSearchbar } from './Searchbar.styled';
+import { StyledForm, StyledSearchbar } from './SearchBar.styled';
 
 export class Searchbar extends Component {
   static propTypes = {
